@@ -22,17 +22,24 @@ On mac / linux, the hosts file is located at `/etc/hosts`.
 127.0.0.1   shoppinglist.test
 ```
 
-4. Start docker containers.
+4. Make helper script executable.
+(You might have to prefix this with `sudo`)
+```
+chmod +x dev.sh
+```
+
+5. Start docker containers.
 ```bash
 ./dev.sh up
 ```
 
-5. Visit the application in your browser at `http://shoppinglist.test/`
+6. Visit the application in your browser at `http://shoppinglist.test/`
 
-6. (Optional) Stop docker containers.
+7. (Optional) Stop docker containers.
 ```bash
 ./dev.sh down
 ```
+
 ## Goal of this project
 - Simple and nice interface, nothing should be in the way.
 - Focus on easily adding goods and sharing it.
