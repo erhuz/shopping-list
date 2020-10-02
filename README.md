@@ -1,9 +1,7 @@
 <img src="https://media.giphy.com/media/fAhOtxIzrTxyE/giphy.gif" width="100%" style="margin: 0 auto">
 
-<p align="center">
 <h1> Shopping List </h1>
 <p>A simple shopping list application with focus on user experience.<p>
-</p>
 
 ## Installation
 *Work in progress*
