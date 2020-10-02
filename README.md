@@ -13,4 +13,4 @@
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Shopping list app is open-sourced software licensed under the [Apache-2.0 License](https://opensource.org/licenses/Apache-2.0).
