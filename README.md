@@ -23,7 +23,7 @@ On mac / linux, the hosts file is located at `/etc/hosts`.
 ```
 
 4. Make helper script executable.
-(You might have to prefix this with `sudo`)
+(You might have to prefix this command with `sudo`)
 ```
 chmod +x dev.sh
 ```
@@ -32,6 +32,7 @@ chmod +x dev.sh
 ```bash
 ./dev.sh up
 ```
+Or you can run `docker-compose -f _docker/docker-compose.yml up -d mysql nginx workspace phpmyadmin`
 
 6. Visit the application in your browser at `http://shoppinglist.test/`
 
@@ -39,6 +40,7 @@ chmod +x dev.sh
 ```bash
 ./dev.sh down
 ```
+Or you can run `docker-compose -f _docker/docker-compose.yml down`
 
 ## Goal of this project
 - Simple and nice interface, nothing should be in the way.
