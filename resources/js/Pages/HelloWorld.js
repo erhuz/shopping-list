@@ -4,7 +4,7 @@ import ItemList from './../Components/ItemList'
 
 export default function HelloWorld() {
     return (
-        <AppLayout title="App">
+        <AppLayout title="Shopping list">
             <ItemList />
         </AppLayout>
     )
