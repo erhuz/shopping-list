@@ -32,11 +32,31 @@ chmod +x dev.sh
 ```bash
 ./dev.sh up
 ```
-Or you can run `docker-compose -f _docker/docker-compose.yml up -d mysql nginx workspace phpmyadmin`
+Or you can run `cd _docker && docker-compose -f docker-compose.yml up -d mysql nginx workspace phpmyadmin`
 
-6. Visit the application in your browser at `http://shoppinglist.test/`
+6. Install npm dependencies
+```
+npm install
+```
 
-7. (Optional) Stop docker containers.
+7. Build css & javascript.
+```
+npm run dev
+```
+
+8. Enter the workspace container.
+```
+./dev.sh workspace
+```
+
+9. Run composer install inside the workspace container.
+```
+composer install
+```
+
+10. Visit the application in your browser at `http://shoppinglist.test/`
+
+11. (Optional) Stop docker containers.
 ```bash
 ./dev.sh down
 ```
