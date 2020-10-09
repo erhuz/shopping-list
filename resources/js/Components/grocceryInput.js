@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Inertia } from '@inertiajs/inertia'
 
 class GroceryInput extends Component {
     constructor(props) {
@@ -10,7 +11,16 @@ class GroceryInput extends Component {
 
     handleChange (value) {
         this.setState({search_input: value})
-        console.log(this.state.search_input);
+    }
+
+    handleSubmit(e) {
+
+        if (e.charCode === 13) {
+
+            Inertia.post(`/api/item-lists/${this.props.id}/list-item`, {
+                name: this.state.search_input
+            });
+        }
     }
 
     render () {
@@ -18,6 +28,7 @@ class GroceryInput extends Component {
             <div>
                 <input
                     onChange={(event) => {this.handleChange(event.target.value)}}
+                    onKeyPress={(event) => {this.handleSubmit(event)}}
                     className="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                     id="street_address"
                     placeholder="Mjölk, kaffe, tv..."
