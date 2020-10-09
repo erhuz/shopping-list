@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Item({ item }) {
+export default function ListItem({ item, handleChange }) {
 
     const id = `id-${item.id}`;
 
@@ -9,7 +9,9 @@ export default function Item({ item }) {
             <div className="flex items-center h-5">
                 <input id={id} type="checkbox"
                        className="form-checkbox h-4 w-4 text-green-400 transition duration-150 ease-in-out"
-                       checked={item.completed} />
+                       checked={item.completed}
+                       onChange={(e) => handleChange(item, e)}
+                />
             </div>
             <div className="ml-3 text-sm leading-5">
                 <label htmlFor={id} className={`font-medium text-gray-700${item.completed ? ' line-through' : ''}`}>
