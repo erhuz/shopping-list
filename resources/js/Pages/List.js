@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import AppLayout from './../Layouts/AppLayout'
 import ItemList from './../Components/ItemList'
+import { Inertia } from '@inertiajs/inertia'
 
 export default function List(props) {
 
@@ -12,7 +13,11 @@ export default function List(props) {
         const updatedItems = [...items];
         updatedItems[itemIndex].completed = !item.completed;
 
+        const updatedItem = updatedItems[itemIndex];
+
         setItems(updatedItems);
+
+        Inertia.put(`/api/list-item/${updatedItem.id}`, updatedItem);
     };
 
     return (

@@ -49886,6 +49886,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.js");
 /* harmony import */ var _Components_ItemList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Components/ItemList */ "./resources/js/Components/ItemList.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__);
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -49909,6 +49911,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function List(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(_toConsumableArray(props.items)),
       _useState2 = _slicedToArray(_useState, 2),
@@ -49923,7 +49926,9 @@ function List(props) {
     var updatedItems = _toConsumableArray(items);
 
     updatedItems[itemIndex].completed = !item.completed;
+    var updatedItem = updatedItems[itemIndex];
     setItems(updatedItems);
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__["Inertia"].put("/api/list-item/".concat(updatedItem.id), updatedItem);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {

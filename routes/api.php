@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\ListItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,4 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::put('/list-item/{list_item}', function (ListItem $listItem, Request $request) {
+    $listItem->completed = $request->input('completed');
+    $listItem->save();
+
+    return Redirect::to('/lists/' . $listItem->itemList->id, 303);
 });
