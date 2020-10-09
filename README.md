@@ -13,7 +13,7 @@ git clone git@github.com:erhuz/shopping-list.git
 
 2. Set up environment variables.
 ```bash
-cp .env.example .env && .env.docker _docker/.env
+cp .env.example .env && cp .env.docker _docker/.env
 ```
 
 3. Enter shoppinglist.test into your hosts file.
