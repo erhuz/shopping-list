@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ItemList;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -18,22 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/helloworld', function () {
-
-    $items = [
-        [
-          'id' => 1,
-          'name' => 'Mjölk',
-          'completed' => false,
-        ],
-        [
-            'id' => 2,
-            'name' => 'Yoghurt',
-            'completed' => true,
-        ],
-    ];
-
+Route::get('/lists/{item_list}', function (ItemList $itemList) {
     return Inertia::render('List', [
-        'items' => $items,
+        'name' => $itemList->name,
+        'items' => $itemList->listItems->map(function ($item) {
+            return [
+                'id' => $item->id,
+                'name' => $item->name,
+                'completed' => $item->completed,
+            ];
+        }),
     ]);
 });

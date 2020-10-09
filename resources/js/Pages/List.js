@@ -17,7 +17,7 @@ export default function List(props) {
 
     return (
         <AppLayout title="List">
-            <ItemList items={items} handleChange={handleChange} />
+            <ItemList name={props.name} items={items} handleChange={handleChange} />
         </AppLayout>
     )
 }

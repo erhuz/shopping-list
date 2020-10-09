@@ -49731,7 +49731,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function ItemList(_ref) {
-  var items = _ref.items,
+  var name = _ref.name,
+      items = _ref.items,
       handleChange = _ref.handleChange;
   var listItems = items.map(function (item) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ListItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -49750,7 +49751,7 @@ function ItemList(_ref) {
     className: "border-b border-gray-200 px-4 py-5 sm:px-6"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex items-center justify-between"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "S\xF6ndag, 4 Oktober 2020"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "inline-flex rounded-md shadow-sm"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
@@ -49928,6 +49929,7 @@ function List(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     title: "List"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Components_ItemList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    name: props.name,
     items: items,
     handleChange: handleChange
   }));
