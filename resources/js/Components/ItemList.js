@@ -5,7 +5,7 @@ export default function ItemList() {
 
     const item = {
         id: 1,
-        completed: false,
+        completed: true,
         name: "Mjölk",
     };
 

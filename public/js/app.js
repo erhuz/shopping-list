@@ -49738,12 +49738,13 @@ function Item(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     id: id,
     type: "checkbox",
-    className: "form-checkbox h-4 w-4 text-green-400 transition duration-150 ease-in-out"
+    className: "form-checkbox h-4 w-4 text-green-400 transition duration-150 ease-in-out",
+    checked: item.completed
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "ml-3 text-sm leading-5"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     htmlFor: id,
-    className: "font-medium text-gray-700"
+    className: "font-medium text-gray-700".concat(item.completed ? ' line-through' : '')
   }, item.name)));
 }
 
@@ -49767,7 +49768,7 @@ __webpack_require__.r(__webpack_exports__);
 function ItemList() {
   var item = {
     id: 1,
-    completed: false,
+    completed: true,
     name: "Mjölk"
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
