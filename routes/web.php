@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::get('/lists/{item_list}', function (ItemList $itemList) {
     return Inertia::render('List', [
+        'id' => $itemList->id,
         'name' => $itemList->name,
         'items' => $itemList->listItems->map(function ($item) {
             return [

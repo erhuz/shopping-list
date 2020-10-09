@@ -2,7 +2,7 @@ import React from 'react'
 import ListItem from './ListItem'
 import GroceryInput from './grocceryInput'
 
-export default function ItemList({ name, items, handleChange }) {
+export default function ItemList({ id, name, items, handleChange }) {
 
     const listItems = items.map((item) =>
         <ListItem key={item.id.toString()}
@@ -31,7 +31,7 @@ export default function ItemList({ name, items, handleChange }) {
                         </div>
                         <div className="border-t border-gray-200 px-4 py-4 sm:px-6">
                             <div>
-                                <GroceryInput/>
+                                <GroceryInput id={id} />
                             </div>
                         </div>
                     </div>
