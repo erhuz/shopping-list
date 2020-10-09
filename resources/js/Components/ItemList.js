@@ -1,13 +1,14 @@
 import React from 'react'
-import Item from './Item'
+import ListItem from './ListItem'
 
-export default function ItemList() {
+export default function ItemList({ items, handleChange }) {
 
-    const item = {
-        id: 1,
-        completed: true,
-        name: "Mjölk",
-    };
+    const listItems = items.map((item) =>
+        <ListItem key={item.id.toString()}
+                  item={item}
+                  handleChange={handleChange}
+        />
+    );
 
     return (
         <div>
@@ -26,7 +27,7 @@ export default function ItemList() {
                         </div>
                         <div className="px-4 py-5 sm:p-6">
                             <div className="space-y-6">
-                                <Item item={item} />
+                                {listItems}
                             </div>
                         </div>
                         <div className="border-t border-gray-200 px-4 py-4 sm:px-6">

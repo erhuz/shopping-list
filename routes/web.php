@@ -19,5 +19,21 @@ Route::get('/', function () {
 });
 
 Route::get('/helloworld', function () {
-    return Inertia::render('HelloWorld');
+
+    $items = [
+        [
+          'id' => 1,
+          'name' => 'Mjölk',
+          'completed' => false,
+        ],
+        [
+            'id' => 2,
+            'name' => 'Yoghurt',
+            'completed' => true,
+        ],
+    ];
+
+    return Inertia::render('List', [
+        'items' => $items,
+    ]);
 });
