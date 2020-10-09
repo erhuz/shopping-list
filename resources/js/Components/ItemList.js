@@ -1,6 +1,14 @@
 import React from 'react'
+import Item from './Item'
 
 export default function ItemList() {
+
+    const item = {
+        id: 1,
+        completed: false,
+        name: "Mjölk",
+    };
+
     return (
         <div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
@@ -18,27 +26,7 @@ export default function ItemList() {
                         </div>
                         <div className="px-4 py-5 sm:p-6">
                             <div className="space-y-6">
-                                <div className="flex items-start">
-                                    <div className="flex items-center h-5">
-                                        <input id="candidates" type="checkbox"
-                                               className="form-checkbox h-4 w-4 text-green-400 transition duration-150 ease-in-out"
-                                               checked />
-                                    </div>
-                                    <div className="ml-3 text-sm leading-5">
-                                        <label htmlFor="candidates"
-                                               className="font-medium text-gray-700 line-through">Mjölk</label>
-                                    </div>
-                                </div>
-                                <div className="flex items-start">
-                                    <div className="flex items-center h-5">
-                                        <input id="candidates" type="checkbox"
-                                               className="form-checkbox h-4 w-4 text-green-400 transition duration-150 ease-in-out" />
-                                    </div>
-                                    <div className="ml-3 text-sm leading-5">
-                                        <label htmlFor="candidates"
-                                               className="font-medium text-gray-700">Yoghurt</label>
-                                    </div>
-                                </div>
+                                <Item item={item} />
                             </div>
                         </div>
                         <div className="border-t border-gray-200 px-4 py-4 sm:px-6">
