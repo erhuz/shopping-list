@@ -9,7 +9,7 @@ down() {
 }
 
 workspace() {
-    cd _docker && docker-compose -f docker-compose.yml exec workspace bash
+    cd _docker && docker-compose -f docker-compose.yml exec --user 1000 workspace bash
 }
 
 "$@"
