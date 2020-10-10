@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ListItem from './ListItem'
-import GroceryInput from './grocceryInput'
+import GroceryInput from './GrocceryInput'
 
-export default function ItemList({ id, name, items, handleChange }) {
+export default function ItemList({ id, name, items, updateItem }) {
 
     const listItems = items.map((item) =>
         <ListItem key={item.id.toString()}
                   item={item}
-                  handleChange={handleChange}
+                  updateItem={updateItem}
         />
     );
 

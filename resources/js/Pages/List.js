@@ -12,7 +12,7 @@ export default function List(props) {
         return () => clearInterval(interval);
     }, []);
 
-    const handleChange = (item, event) => {
+    const updateItem = (item, event) => {
         const itemIndex = props.items.findIndex(element => element.id === item.id);
 
         const updatedItem = props.items[itemIndex];
@@ -23,7 +23,7 @@ export default function List(props) {
 
     return (
         <AppLayout title="List">
-            <ItemList id={props.id} name={props.name} items={props.items} handleChange={handleChange} />
+            <ItemList id={props.id} name={props.name} items={props.items} updateItem={updateItem} />
         </AppLayout>
     )
 }
