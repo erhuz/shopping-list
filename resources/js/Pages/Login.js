@@ -19,6 +19,7 @@ export default function Login(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        Inertia.post('/login', values);
     };
 
     return (
@@ -32,6 +33,7 @@ export default function Login(props) {
 
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                 <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                    {props.errors.email && <div>{props.errors.email}</div>}
                     <form onSubmit={handleSubmit} method="POST">
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-5 text-gray-700">
