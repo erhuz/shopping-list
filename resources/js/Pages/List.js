@@ -5,25 +5,22 @@ import { Inertia } from '@inertiajs/inertia'
 
 export default function List(props) {
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            Inertia.reload({ only: ['items']});
-        }, 500);
-        return () => clearInterval(interval);
-    }, []);
+    const [items, setItems] = useState([...props.items]);
 
     const handleChange = (item, event) => {
-        const itemIndex = props.items.findIndex(element => element.id === item.id);
+        const itemIndex = items.findIndex(element => element.id === item.id);
 
-        const updatedItem = props.items[itemIndex];
-        updatedItem.completed = !item.completed;
+        const newItems = [...items];
+        newItems[itemIndex].completed = !item.completed;
 
-        Inertia.put(`/api/list-item/${updatedItem.id}`, updatedItem);
+        setItems(newItems);
+
+        Inertia.put(`/api/list-item/${item.id}`, newItems[itemIndex]);
     };
 
     return (
         <AppLayout title="List">
-            <ItemList id={props.id} name={props.name} items={props.items} handleChange={handleChange} />
+            <ItemList id={props.id} name={props.name} items={items} handleChange={handleChange} />
         </AppLayout>
     )
 }
