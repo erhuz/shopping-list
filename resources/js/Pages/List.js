@@ -7,7 +7,7 @@ export default function List(props) {
 
     const [items, setItems] = useState([...props.items]);
 
-    const handleChange = (item, event) => {
+    const updateItem = (item, event) => {
         const itemIndex = items.findIndex(element => element.id === item.id);
 
         const newItems = [...items];
@@ -20,7 +20,7 @@ export default function List(props) {
 
     return (
         <AppLayout title="List">
-            <ItemList id={props.id} name={props.name} items={items} handleChange={handleChange} />
+            <ItemList id={props.id} name={props.name} items={items} updateItem={updateItem} />
         </AppLayout>
     )
 }
