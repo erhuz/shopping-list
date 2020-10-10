@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Inertia } from '@inertiajs/inertia'
 
-export default function GroceryInput ({id, createItem}) {
+export default function CreateItemForm ({id, createItem}) {
     const [searchInput, setSearchInput] = useState('');
 
     const handleChange = (value) => {
