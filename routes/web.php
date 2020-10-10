@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\ItemList;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -23,6 +24,13 @@ Route::get('/home', function () {
     return Inertia::render('Home');
 });
 
+Route::get('/lists/create', function () {
+    return Inertia::render('CreateList', [
+        'name' => now()->format('l, j F Y'),
+    ]);
+});
+
+
 Route::get('/lists/{item_list}', function (ItemList $itemList) {
     return Inertia::render('List', [
         'id' => $itemList->id,
@@ -35,4 +43,13 @@ Route::get('/lists/{item_list}', function (ItemList $itemList) {
             ];
         }),
     ]);
+});
+
+Route::post('/lists', function (Request $request) {
+    $list = new ItemList();
+    $list->name = $request->input('name');
+
+    $list->save();
+
+    return redirect('/lists/' . $list->id, 303);
 });
