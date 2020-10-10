@@ -18,9 +18,21 @@ export default function List(props) {
         Inertia.put(`/api/list-item/${item.id}`, newItems[itemIndex]);
     };
 
+    const createItem = (item, event) => {
+        //TODO: Create temporary item with loading symbol.
+        // const newItems = [...items];
+        // newItems.push(item);
+        // setItems(newItems);
+
+        Inertia.post(`/api/item-lists/${props.id}/list-item`,{
+            name: item.name
+        })
+
+    };
+
     return (
         <AppLayout title="List">
-            <ItemList id={props.id} name={props.name} items={props.items} updateItem={updateItem} />
+            <ItemList id={props.id} name={props.name} items={props.items} updateItem={updateItem} createItem={createItem} />
         </AppLayout>
     )
 }

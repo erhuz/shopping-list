@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import ListItem from './ListItem'
 import CreateItemForm from './CreateItemForm'
 
-export default function ItemList({ id, name, items, updateItem }) {
+export default function ItemList({ id, name, items, updateItem, createItem }) {
 
     const listItems = items.map((item) =>
         <ListItem key={item.id.toString()}
@@ -30,7 +30,7 @@ export default function ItemList({ id, name, items, updateItem }) {
                     </div>
                     <div className="border-t border-gray-200 px-4 py-4 sm:px-6">
                         <div>
-                            <CreateItemForm id={id} />
+                            <CreateItemForm id={id} onChange={(e) => {/* TODO: Autocomplete */}} createItem={createItem} />
                         </div>
                     </div>
                 </div>

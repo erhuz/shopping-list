@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Inertia } from '@inertiajs/inertia'
 
-export default function GroceryInput ({id}) {
+export default function GroceryInput ({id, createItem}) {
     const [searchInput, setSearchInput] = useState('');
 
     const handleChange = (value) => {
@@ -10,9 +10,13 @@ export default function GroceryInput ({id}) {
 
     const handleSubmit = (event) => {
         if (event.charCode === 13) {
-            Inertia.post(`/api/item-lists/${id}/list-item`, {
-                name: this.state.search_input
-            });
+            let item = {
+                name: event.target.value,
+                completed: 0,
+            }
+
+            createItem(item, event);
+            event.target.value = '';
         }
     }
 
