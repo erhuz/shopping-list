@@ -32,3 +32,7 @@ Route::get('/lists/{item_list}', function (ItemList $itemList) {
         }),
     ]);
 });
+
+Route::get('/login', function () {
+    return Inertia::render('Login');
+});
