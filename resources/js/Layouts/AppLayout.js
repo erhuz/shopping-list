@@ -34,6 +34,15 @@ export default function AppLayout({ title, children }) {
                                 <img className="h-8 w-auto"
                                      src="https://tailwindui.com/img/logos/workflow-logo-on-white.svg" alt="Workflow" />
                             </div>
+                            <nav className="mt-5 px-2 space-y-1">
+                                <InertiaLink href="/home"
+                                   className="group flex items-center px-2 py-2 text-base leading-6 font-medium text-gray-900 rounded-md bg-gray-100 focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150">
+                                    <svg className="mr-4 h-6 w-6 text-gray-500 group-hover:text-gray-500 group-focus:text-gray-600 transition ease-in-out duration-150" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                    </svg>
+                                    My Lists
+                                </InertiaLink>
+                            </nav>
                         </div>
                     </div>
                     <div className="flex-shrink-0 w-14">
