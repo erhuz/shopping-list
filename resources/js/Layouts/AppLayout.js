@@ -41,7 +41,7 @@ export default function AppLayout({ title, children }) {
                 </div>
             </div>
             <div className="flex flex-col w-0 flex-1 overflow-hidden">
-                <div className="pl-1 pt-1 sm:pl-3 sm:pt-3">
+                <div className="pr-1 pt-1 sm:pl-3 sm:pt-3 self-end sm:self-start">
                     <button
                         className="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
                         aria-label="Open sidebar"
