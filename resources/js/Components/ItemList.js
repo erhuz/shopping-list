@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ListItem from './ListItem'
-import GroceryInput from './GrocceryInput'
+import GroceryInput from './CreateItemForm'
 
 export default function ItemList({ id, name, items, updateItem }) {
 
@@ -26,9 +26,7 @@ export default function ItemList({ id, name, items, updateItem }) {
                         </div>
                     </div>
                     <div className="px-4 py-5 sm:p-6">
-                        <div className="space-y-6">
-                            {listItems}
-                        </div>
+                        {listItems}
                         <div className="border-t border-gray-200 px-4 py-4 sm:px-6">
                             <div>
                                 <GroceryInput id={id} />
