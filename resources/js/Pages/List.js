@@ -20,7 +20,7 @@ export default function List(props) {
 
     return (
         <AppLayout title="List">
-            <ItemList id={props.id} name={props.name} items={items} updateItem={updateItem} />
+            <ItemList id={props.id} name={props.name} items={props.items} updateItem={updateItem} />
         </AppLayout>
     )
 }
