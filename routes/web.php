@@ -21,7 +21,14 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return Inertia::render('Home');
+    return Inertia::render('Home', [
+        'lists' => ItemList::all()->map(function ($list) {
+           return [
+               'id' => $list->id,
+               'name' => $list->name,
+           ];
+        }),
+    ]);
 });
 
 Route::get('/lists/create', function () {
