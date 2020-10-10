@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return Inertia::render('Home');
+});
+
 Route::get('/lists/{item_list}', function (ItemList $itemList) {
     return Inertia::render('List', [
         'id' => $itemList->id,
@@ -31,8 +35,4 @@ Route::get('/lists/{item_list}', function (ItemList $itemList) {
             ];
         }),
     ]);
-});
-
-Route::get('/login', function () {
-    return Inertia::render('Login');
 });
