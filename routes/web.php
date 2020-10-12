@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ItemListController;
 use App\Models\ItemList;
+use App\Models\ListItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -31,11 +33,8 @@ Route::get('/home', function () {
     ]);
 });
 
-Route::get('/lists/create', function () {
-    return Inertia::render('CreateList', [
-        'name' => now()->format('l, j F Y'),
-    ]);
-});
+Route::get('/lists/create', [ItemListController::class, 'create'])
+    ->name('lists.create');
 
 
 Route::get('/lists/{item_list}', function (ItemList $itemList) {
@@ -60,3 +59,32 @@ Route::post('/lists', function (Request $request) {
 
     return redirect('/lists/' . $list->id, 303);
 });
+
+Route::post('/item-lists/{item_list}/list-item', function (ItemList $itemList, Request $request) {
+
+    $item = new ListItem();
+    $item->name = $request->input('name');
+
+    $itemList->listItems()->save($item);
+
+    return Redirect::to('/lists/' . $itemList->id, 303);
+});
+
+Route::delete('/list-item/{list_item}', function (Listitem $listItem, Request $request) {
+
+    // TODO
+
+    $id = $listItem->itemList->id;
+
+    $listItem->delete();
+
+    return Redirect::to('/lists/' . $id, 303);
+});
+
+Route::put('/list-item/{list_item}', function (ListItem $listItem, Request $request) {
+    $listItem->completed = $request->input('completed');
+    $listItem->save();
+
+    return Redirect::to('/lists/' . $listItem->itemList->id, 303);
+});
+
