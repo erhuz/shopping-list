@@ -32,6 +32,17 @@ Route::post('/item-lists/{item_list}/list-item', function (ItemList $itemList, R
     return Redirect::to('/lists/' . $itemList->id, 303);
 });
 
+Route::delete('/list-item/{list_item}', function (Listitem $listItem, Request $request) {
+
+    // TODO
+
+    $id = $listItem->itemList->id;
+
+    $listItem->delete();
+
+    return Redirect::to('/lists/' . $id, 303);
+});
+
 Route::put('/list-item/{list_item}', function (ListItem $listItem, Request $request) {
     $listItem->completed = $request->input('completed');
     $listItem->save();

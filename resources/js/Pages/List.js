@@ -30,9 +30,13 @@ export default function List(props) {
 
     };
 
+    const deleteItem = (item, event) => {
+        Inertia.delete(`/api/list-item/${item.id}`, item);
+    };
+
     return (
         <AppLayout title="List">
-            <ItemList id={props.id} name={props.name} items={props.items} updateItem={updateItem} createItem={createItem} />
+            <ItemList id={props.id} name={props.name} items={props.items} updateItem={updateItem} createItem={createItem} deleteItem={deleteItem} />
         </AppLayout>
     )
 }

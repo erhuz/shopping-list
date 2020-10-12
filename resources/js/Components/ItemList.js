@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import ListItem from './ListItem'
 import CreateItemForm from './CreateItemForm'
 
-export default function ItemList({ id, name, items, updateItem, createItem }) {
+export default function ItemList({ id, name, items, updateItem, createItem, deleteItem }) {
 
     const listItems = items.map((item) =>
         <ListItem key={item.id.toString()}
                   item={item}
                   updateItem={updateItem}
+                  deleteItem={deleteItem}
         />
     );
 
