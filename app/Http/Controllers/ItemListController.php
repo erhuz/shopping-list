@@ -29,4 +29,14 @@ class ItemListController extends Controller
             }),
         ]);
     }
+
+    public function store(Request $request)
+    {
+        $list = new ItemList();
+        $list->name = $request->input('name');
+
+        $list->save();
+
+        return redirect()->route('item_lists.show', [$list], 303);
+    }
 }

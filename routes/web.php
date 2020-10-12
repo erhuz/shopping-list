@@ -34,20 +34,14 @@ Route::get('/home', function () {
 });
 
 Route::get('/lists/create', [ItemListController::class, 'create'])
-    ->name('lists.create');
+    ->name('item_lists.create');
 
 Route::get('/lists/{item_list}', [ItemListController::class, 'show'])
-    ->name('lists.show');
+    ->name('item_lists.show');
 
+Route::post('/lists', [ItemListController::class, 'store'])
+    ->name('item_lists.store');
 
-Route::post('/lists', function (Request $request) {
-    $list = new ItemList();
-    $list->name = $request->input('name');
-
-    $list->save();
-
-    return redirect('/lists/' . $list->id, 303);
-});
 
 Route::post('/item-lists/{item_list}/list-item', function (ItemList $itemList, Request $request) {
 
