@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ItemListController;
+use App\Http\Controllers\ListItemController;
 use App\Models\ItemList;
 use App\Models\ListItem;
 use Illuminate\Http\Request;
@@ -42,27 +43,11 @@ Route::get('/lists/{item_list}', [ItemListController::class, 'show'])
 Route::post('/lists', [ItemListController::class, 'store'])
     ->name('item_lists.store');
 
+Route::post('/lists/{item_list}/items', [ListItemController::class, 'store'])
+    ->name('list_items.store');
 
-Route::post('/item-lists/{item_list}/list-item', function (ItemList $itemList, Request $request) {
-
-    $item = new ListItem();
-    $item->name = $request->input('name');
-
-    $itemList->listItems()->save($item);
-
-    return Redirect::to('/lists/' . $itemList->id, 303);
-});
-
-Route::delete('/list-item/{list_item}', function (Listitem $listItem, Request $request) {
-
-    // TODO
-
-    $id = $listItem->itemList->id;
-
-    $listItem->delete();
-
-    return Redirect::to('/lists/' . $id, 303);
-});
+Route::delete('/items/{list_item}', [ListItemController::class, 'destroy'])
+    ->name('list_items.destroy');
 
 Route::put('/list-item/{list_item}', function (ListItem $listItem, Request $request) {
     $listItem->completed = $request->input('completed');

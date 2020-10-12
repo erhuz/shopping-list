@@ -24,14 +24,14 @@ export default function List(props) {
         // newItems.push(item);
         // setItems(newItems);
 
-        Inertia.post(`/item-lists/${props.id}/list-item`,{
+        Inertia.post(`/lists/${props.id}/items`,{
             name: item.name
         })
 
     };
 
     const deleteItem = (item, event) => {
-        Inertia.delete(`/list-item/${item.id}`, item);
+        Inertia.delete(`/items/${item.id}`, item);
     };
 
     return (
