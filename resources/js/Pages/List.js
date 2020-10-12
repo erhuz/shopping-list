@@ -15,7 +15,7 @@ export default function List(props) {
 
         setItems(newItems);
 
-        Inertia.put(`/api/list-item/${item.id}`, newItems[itemIndex]);
+        Inertia.put(`/items/${item.id}`, newItems[itemIndex]);
     };
 
     const createItem = (item, event) => {
@@ -24,14 +24,14 @@ export default function List(props) {
         // newItems.push(item);
         // setItems(newItems);
 
-        Inertia.post(`/api/item-lists/${props.id}/list-item`,{
+        Inertia.post(`/lists/${props.id}/items`,{
             name: item.name
         })
 
     };
 
     const deleteItem = (item, event) => {
-        Inertia.delete(`/api/list-item/${item.id}`, item);
+        Inertia.delete(`/items/${item.id}`, item);
     };
 
     return (

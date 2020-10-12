@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\ItemListController;
+use App\Http\Controllers\ListItemController;
 use App\Models\ItemList;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -31,32 +32,20 @@ Route::get('/home', function () {
     ]);
 });
 
-Route::get('/lists/create', function () {
-    return Inertia::render('CreateList', [
-        'name' => now()->format('l, j F Y'),
-    ]);
-});
+Route::get('/lists/create', [ItemListController::class, 'create'])
+    ->name('item_lists.create');
 
+Route::get('/lists/{item_list}', [ItemListController::class, 'show'])
+    ->name('item_lists.show');
 
-Route::get('/lists/{item_list}', function (ItemList $itemList) {
-    return Inertia::render('List', [
-        'id' => $itemList->id,
-        'name' => $itemList->name,
-        'items' => $itemList->listItems->map(function ($item) {
-            return [
-                'id' => $item->id,
-                'name' => $item->name,
-                'completed' => $item->completed,
-            ];
-        }),
-    ]);
-});
+Route::post('/lists', [ItemListController::class, 'store'])
+    ->name('item_lists.store');
 
-Route::post('/lists', function (Request $request) {
-    $list = new ItemList();
-    $list->name = $request->input('name');
+Route::post('/lists/{item_list}/items', [ListItemController::class, 'store'])
+    ->name('list_items.store');
 
-    $list->save();
+Route::delete('/items/{list_item}', [ListItemController::class, 'destroy'])
+    ->name('list_items.destroy');
 
-    return redirect('/lists/' . $list->id, 303);
-});
+Route::put('/items/{list_item}', [ListItemController::class, 'update'])
+    ->name('list_items.update');
