@@ -44,6 +44,9 @@ export default function AppLayout({ title, children }) {
                                 </InertiaLink>
                             </nav>
                         </div>
+                        <div className="flex-shrink-0 flex bg-gray-100 p-4">
+                            ...
+                        </div>
                     </div>
                     <div className="flex-shrink-0 w-14">
                     </div>
