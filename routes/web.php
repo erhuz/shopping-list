@@ -36,20 +36,9 @@ Route::get('/home', function () {
 Route::get('/lists/create', [ItemListController::class, 'create'])
     ->name('lists.create');
 
+Route::get('/lists/{item_list}', [ItemListController::class, 'show'])
+    ->name('lists.show');
 
-Route::get('/lists/{item_list}', function (ItemList $itemList) {
-    return Inertia::render('List', [
-        'id' => $itemList->id,
-        'name' => $itemList->name,
-        'items' => $itemList->listItems->map(function ($item) {
-            return [
-                'id' => $item->id,
-                'name' => $item->name,
-                'completed' => $item->completed,
-            ];
-        }),
-    ]);
-});
 
 Route::post('/lists', function (Request $request) {
     $list = new ItemList();
