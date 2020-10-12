@@ -3,8 +3,6 @@
 use App\Http\Controllers\ItemListController;
 use App\Http\Controllers\ListItemController;
 use App\Models\ItemList;
-use App\Models\ListItem;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
