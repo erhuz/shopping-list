@@ -49,10 +49,5 @@ Route::post('/lists/{item_list}/items', [ListItemController::class, 'store'])
 Route::delete('/items/{list_item}', [ListItemController::class, 'destroy'])
     ->name('list_items.destroy');
 
-Route::put('/list-item/{list_item}', function (ListItem $listItem, Request $request) {
-    $listItem->completed = $request->input('completed');
-    $listItem->save();
-
-    return Redirect::to('/lists/' . $listItem->itemList->id, 303);
-});
-
+Route::put('/items/{list_item}', [ListItemController::class, 'update'])
+    ->name('list_items.update');

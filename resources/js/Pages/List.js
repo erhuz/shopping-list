@@ -15,7 +15,7 @@ export default function List(props) {
 
         setItems(newItems);
 
-        Inertia.put(`/list-item/${item.id}`, newItems[itemIndex]);
+        Inertia.put(`/items/${item.id}`, newItems[itemIndex]);
     };
 
     const createItem = (item, event) => {

@@ -25,4 +25,14 @@ class ListItemController extends Controller
 
         return redirect()->route('item_lists.show', [$itemList], 303);
     }
+
+    public function update(ListItem $listItem, Request $request)
+    {
+        $listItem->completed = $request->input('completed');
+        $listItem->save();
+
+        $itemList = $listItem->itemList;
+
+        return redirect()->route('item_lists.show', [$itemList], 303);
+    }
 }
